@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>DanmakuSender</title>
+</head>
+
+<body>
+
+  <script src="../dist/DanmakuSender.js"></script>
+
+  <script>
+    const mids = {
+      1000: "b427a317",
+      1001: "c3209381",
+      208259: "b615148d",
+      666666: "fe803286",
+      6666666: "199ddc33",
+      66666666: "a27186de",
+      23333333: "d0268b53",
+      123456789: "cbf43926",
+      1000000000: "efa013c8"
+    }
+    console.time()
+    const ds = new DanmakuSender()
+    Object.keys(mids).forEach(mid => {
+      const hash = mids[mid]
+      const parsed = ds.parse(hash)
+
+      const flag = mid === parsed ? '[√]' : '[×]'
+
+      console.log(`${flag} ${hash} -> ${parsed}`)
+    })
+    console.timeEnd()
+
+  </script>
+</body>
+
+</html>
